@@ -2,7 +2,10 @@
 
 ## Instalación de Repositorio
 
--1. Hola
+1. Copiar [URL](https://github.com/siser879/INSIRU.git) de Code
+2. Abrir Visual Studio
+3. Clonar un repositorio
+4. Ubicación del repositorio: URL copiada
 
 ## Uso de ramas
 
