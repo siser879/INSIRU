@@ -17,3 +17,22 @@ E:\Ciclo Formativo Completo\CFGS\TFG\Visual Studio\Insiru\obj\Debug\Insiru.pdb
 E:\Ciclo Formativo Completo\CFGS\TFG\Visual Studio\Insiru\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\Ciclo Formativo Completo\CFGS\TFG\Visual Studio\Insiru\obj\Debug\Combate.g.cs
 E:\Ciclo Formativo Completo\CFGS\TFG\Visual Studio\Insiru\obj\Debug\Combate.baml
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\bin\Debug\Insiru.exe.config
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\bin\Debug\Insiru.exe
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\bin\Debug\Insiru.pdb
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.csproj.AssemblyReference.cache
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.csproj.SuggestedBindingRedirects.cache
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Combate.g.cs
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\MainWindow.g.cs
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\App.g.cs
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru_MarkupCompile.cache
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru_MarkupCompile.lref
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Combate.baml
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\MainWindow.baml
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.g.resources
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.Properties.Resources.resources
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.csproj.GenerateResource.cache
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.csproj.CoreCompileInputs.cache
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.exe
+D:\Documentos\Estudios\DAM\2ºDAM\TFG\Juego\Insiru_Compartido\Insiru\obj\Debug\Insiru.pdb

@@ -26,6 +26,8 @@ namespace Insiru
 
         private int shiny_aliado = 0;
         private int shiny_enemigo = 0;
+        private int pokemon_aliado_maxVida;
+        private int pokemon_enemigo_maxVida;
 
         public Combate(Pokemon pokemon_aliado, Pokemon pokemon_enemigo, int shiny1, int shiny2)
         {
@@ -50,6 +52,9 @@ namespace Insiru
             if (shiny_enemigo == 0) Pokemon_Enemigo.Source = new BitmapImage(new Uri("/Images/Pokemons/Enemigo/" + Conector.imagenes_Pokemon(pokemon_enemigo.Nombre) + ".png", UriKind.Relative));
             else Pokemon_Enemigo.Source = new BitmapImage(new Uri("/Images/Pokemons/Enemigo Shiny/" + Conector.imagenes_Pokemon(pokemon_enemigo.Nombre) + ".png", UriKind.Relative));
 
+            pokemon_aliado_maxVida = pokemon_aliado.Vida;
+            pokemon_enemigo_maxVida = pokemon_enemigo.Vida;
+
             obtenerAtaques();
 
         }
@@ -62,9 +67,8 @@ namespace Insiru
             Ataque2.Content = nombres[1];
             Ataque3.Content = nombres[2];
             Ataque4.Content = nombres[3];
+
             obtenerColor(pokemon_aliado.Tipo, Ataque4);
-
-
 
         }
 
@@ -86,5 +90,25 @@ namespace Insiru
             }
         }
 
+        private void Ataque1_Click(object sender, RoutedEventArgs e)
+        {
+
+            double WidthBarraEnemiga = ((pokemon_enemigo.Vida - 5) * 164) / pokemon_enemigo_maxVida;
+
+            if (WidthBarraEnemiga <= 0)
+            {
+                Vida_Enemigo.Width = 0;
+                pokemon_enemigo.Vida = 0;
+
+                //Enviar a la pantalla de victoria
+
+            }
+            else
+            {
+                Vida_Enemigo.Width = WidthBarraEnemiga;
+                pokemon_enemigo.Vida -= 5;
+            }
+            
+        }
     }
 }
