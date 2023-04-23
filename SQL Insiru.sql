@@ -1,3 +1,6 @@
+CREATE DATABASE Insiru;
+USE Insiru;
+
 CREATE TABLE Pokemon (
     id INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(25),
@@ -54,11 +57,3 @@ VALUES
   (1),
   (2),
   (3);
-
-
-select * from Pokemon;
-select * from Ataque;
-select * from Tipo_ataque;
-select * from Estadisticas;
-
-select Nombre from Ataque;
