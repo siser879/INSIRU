@@ -9,6 +9,12 @@
 
 ## Uso de ramas
 
+- Produccion: rama que usan los jugadores
+- Desarrollo: rama que usan los progranadores
+  · ruso
+  · inka
+  · siser
+
 ## Configuración e instalación BBDD 
 
 1. Descargar el archivo [Crear BBDD.sql](https://drive.google.com/file/d/1kCpDSe_14Ov6KW_6xUXMNXTEBa9JKqou/view?usp=sharing)
