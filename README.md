@@ -8,5 +8,5 @@
 
 ## Configuración e instalación BBDD 
 
-- Descargar el archivo Crear BBDD.sql
-- Ejecutar el script en SQL Server Management Studio
+1. Descargar el archivo Crear BBDD.sql 
+2. Ejecutar el script en SQL Server Management Studio
