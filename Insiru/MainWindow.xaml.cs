@@ -22,12 +22,6 @@ namespace Insiru
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string pokemon_aliado_seleccionado = "";
-        public string pokemon_enemigo_seleccionado = "";
-
-        private int shiny_aliado = 0;
-        private int shiny_enemigo = 0;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -52,18 +46,20 @@ namespace Insiru
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            int shiny_aliado = 0;
+            int shiny_enemigo = 0;
+    
             DataRowView vrow = (DataRowView)Pokemon_Aliado.SelectedItem;
             DataRow row = vrow.Row;
 
-            pokemon_aliado_seleccionado = row[1].ToString();
+            string pokemon_aliado_seleccionado = row[1].ToString();
             ArrayList stats = Conector.obtenerStats(pokemon_aliado_seleccionado);
             Pokemon pokemon_aliado = new Pokemon(pokemon_aliado_seleccionado, (string)stats[0], int.Parse((string)stats[1]));
 
             vrow = (DataRowView)Pokemon_Enemigo.SelectedItem;
             row = vrow.Row;
 
-            pokemon_enemigo_seleccionado = row[1].ToString();
+            string pokemon_enemigo_seleccionado = row[1].ToString();
             stats = Conector.obtenerStats(pokemon_enemigo_seleccionado);
             Pokemon pokemon_enemigo = new Pokemon(pokemon_enemigo_seleccionado, (string)stats[0], int.Parse((string)stats[1]));
 
