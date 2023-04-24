@@ -17,6 +17,14 @@
   - inka
   - siser
 
+1. Al terminar de programar en tu rama local, vas a Cambios de GIT (Ver - Cambios de GIT)
+2. Pruebas cambios en local
+3. Agregas los cambios que deseas subir al staged
+4. Escribes un comentario descriptivo de los cambios realizados
+5. Haces el commit
+6. Haces el push
+
+
 ## Configuración e instalación BBDD 
 
 1. Descargar el archivo SQL Insiru.sql
