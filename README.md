@@ -9,11 +9,11 @@
 
 ## Uso de ramas
 
-- Produccion: rama que usan los jugadores
-- Desarrollo: rama que usan los progranadores
-  · ruso
-  · inka
-  · siser
+- Produccion (rama que usan los jugadores)
+- Desarrollo (rama que usan los progranadores)
+  - ruso
+  - inka
+  - siser
 
 ## Configuración e instalación BBDD 
 
