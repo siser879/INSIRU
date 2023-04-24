@@ -9,7 +9,7 @@
 
 ## Uso de ramas
 
-- CADA UNO PROGRAMA EN  SU RAMA, ANTES DE EMPEZAR A PROGRAMAR, HACER PULL (GIT)
+**CADA UNO PROGRAMA EN  SU RAMA, ANTES DE EMPEZAR A PROGRAMAR, HACER PULL (GIT)**
 
 - Produccion (rama que usan los jugadores)
 - Desarrollo (rama que usan los progranadores)
