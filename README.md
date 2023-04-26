@@ -29,4 +29,3 @@
 
 1. Descargar el archivo SQL Insiru.sql
 2. Ejecutar el script en SQL Server Management Studio
-TEST
