@@ -66,6 +66,8 @@ namespace Insiru
         {
             ArrayList nombres = Conector.obtener_Ataque();
 
+            //PRUEBA DE CAMBIO
+
             Ataque1.Content = nombres[0];
             Ataque2.Content = "Esquivar";
             Ataque3.Content = nombres[2];
