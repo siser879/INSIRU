@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Insiru
 {
@@ -71,7 +72,20 @@ namespace Insiru
             Ataque1.Content = nombres[0];
             Ataque2.Content = "Esquivar";
             Ataque3.Content = nombres[2];
-            Ataque4.Content = nombres[3];
+
+            string nombre_ataque = "";
+            if (pokemon_aliado.Tipo == "Fuego") 
+            {
+                nombre_ataque = "Lanzallamas"; 
+            } else if (pokemon_aliado.Tipo == "Agua")
+            {
+                nombre_ataque = "Pistola Agua";
+            } else if (pokemon_aliado.Tipo == "Planta") 
+            {
+                nombre_ataque = "Hoja Afilada";
+            };
+
+            Ataque4.Content = nombre_ataque;
 
             ObtenerColor(pokemon_aliado.Tipo, Ataque4);
 
@@ -97,44 +111,134 @@ namespace Insiru
 
         //Turnos
         private void Turno() {
-            if (turnoJugador == true)
-            {
-                MessageBox.Show("Es turno del jugador");
-                turnoJugador = false;
-            }
-            else {
-                MessageBox.Show("Es turno de la maquina");
-                turnoJugador = true;
-            }
+            //if (turnoJugador == true)
+            //{
+            //    MessageBox.Show("Es turno del jugador");
+            //    turnoJugador = false;
+            //}
+            //else {
+            //    MessageBox.Show("Es turno de la maquina");
+
+
+            //    turnoJugador = true;
+            //}
+
+            MessageBox.Show("Es turno de la maquina");
+
+            Random rnd = new Random();
+
+            int eleccion = rnd.Next(1, 5);
+
+            if (eleccion == 1) { Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false); }
+            else if (eleccion == 2) { Ataque2_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, false); }
+            else if (eleccion == 3) { Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, false); }
+            else if (eleccion == 4) { Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false); }
+
+            MessageBox.Show("Es turno del jugador");
+
         }
         
         //Placaje
         private void Ataque1_Click(object sender, RoutedEventArgs e)
         {
+            Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
+        }
 
-            double WidthBarraEnemiga = ((pokemon_enemigo.Vida - 5) * 164) / pokemon_enemigo_maxVida;
+        //Esquivar
+        private void Ataque2_Click(object sender, RoutedEventArgs e)
+        {
+            Ataque2_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, true);
+        }
+
+        //Curar
+        private void Ataque3_Click(object sender, RoutedEventArgs e)
+        {
+            Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, true);
+        }
+
+        //Elemental
+        private void Ataque4_Click(object sender, RoutedEventArgs e)
+        {
+            Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
+        }
+
+        private double Danio_Elemental(string tipo)
+        {
+            double danio_por_tipo = 5;
+
+            if (pokemon_aliado.Tipo == "Fuego")
+            {
+                if (pokemon_enemigo.Tipo == "Fuego")
+                {
+                    return danio_por_tipo;
+                }
+                else if (pokemon_enemigo.Tipo == "Agua")
+                {
+                    return danio_por_tipo *= 0.5;
+                }
+                else
+                {
+                    return danio_por_tipo *= 2;
+                }
+            }
+            else if (pokemon_aliado.Tipo == "Agua")
+            {
+                if (pokemon_enemigo.Tipo == "Fuego")
+                {
+                    return danio_por_tipo *= 2;
+                }
+                else if (pokemon_enemigo.Tipo == "Agua")
+                {
+                    return danio_por_tipo;
+                }
+                else
+                {
+                    return danio_por_tipo *= 0.5;
+                }
+            }
+            else
+            {
+                if (pokemon_enemigo.Tipo == "Fuego")
+                {
+                    return danio_por_tipo *= 0.5;
+                }
+                else if (pokemon_enemigo.Tipo == "Agua")
+                {
+                    return danio_por_tipo *= 2;
+                }
+                else
+                {
+                    return danio_por_tipo;
+                }
+            }
+        }
+
+        private void Ataque1_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
+        {
+            double WidthBarraEnemiga = ((pokemon.Vida - 5) * 164) / vidaMax;
 
             if (WidthBarraEnemiga <= 0)
             {
-                Vida_Enemigo.Width = 0;
-                pokemon_enemigo.Vida = 0;
+                campo.Width = 0;
+                pokemon.Vida = 0;
 
                 //Enviar a la pantalla de victoria
 
             }
             else
             {
-                Vida_Enemigo.Width = WidthBarraEnemiga;
-                pokemon_enemigo.Vida -= 5;
-                Turno();
+                campo.Width = WidthBarraEnemiga;
+                pokemon.Vida -= 5;
+                if (turnoMaquina == true)
+                {
+                    Turno();
+                }
             }
-            
         }
 
-        //Esquivar
-        private void Ataque2_Click(object sender, RoutedEventArgs e)
+        private void Ataque2_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
         {
-            double WidthBarraAliada = ((pokemon_aliado.Vida - 5) * 164) / pokemon_aliado_maxVida;
+            double WidthBarraAliada = ((pokemon.Vida - 5) * 164) / vidaMax;
 
             Random random = new Random();
             int numeroAleatorio = random.Next(0, 10);
@@ -147,42 +251,66 @@ namespace Insiru
             else
             {
                 //implementar mensaje de que el ataque no fue esquivado
-                Vida_Aliado.Width = WidthBarraAliada;
-                pokemon_aliado.Vida -= 5;
-                Turno();
+                campo.Width = WidthBarraAliada;
+                pokemon.Vida -= 5;
+                if (turnoMaquina == true)
+                {
+                    Turno();
+                }
             }
-
         }
 
-        //Curar
-        private void Ataque3_Click(object sender, RoutedEventArgs e)
+        private void Ataque3_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
         {
-
-            double WidthBarraAliada = ((pokemon_aliado.Vida + 3) * 164) / pokemon_aliado_maxVida;
+            double WidthBarraAliada = ((pokemon.Vida + 3) * 164) / vidaMax;
 
             if (WidthBarraAliada <= 0)
             {
-                Vida_Aliado.Width = 0;
-                pokemon_aliado.Vida = 0;
+                campo.Width = 0;
+                pokemon.Vida = 0;
 
                 //Enviar a la pantalla de derrota
 
             }
-            else if(WidthBarraAliada >= 164)
+            else if (WidthBarraAliada >= 164)
             {
 
                 //Mostrar mensaje - Ya tienes la vida al máximo
                 MessageBox.Show("Ya tienes la vida al máximo");
 
-            }else
-            {
-                Vida_Aliado.Width = WidthBarraAliada;
-                pokemon_aliado.Vida += 3;
-                Turno();
             }
-            
+            else
+            {
+                campo.Width = WidthBarraAliada;
+                pokemon.Vida += 3;
+                if (turnoMaquina == true)
+                {
+                    Turno();
+                }
+            }
         }
 
+        private void Ataque4_Metodo(Rectangle campo, Pokemon pokemon1, Pokemon pokemon2, int vidaMax, Boolean turnoMaquina)
+        {
+            double WidthBarraEnemiga = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo)) * 164) / vidaMax;
 
+            if (WidthBarraEnemiga <= 0)
+            {
+                campo.Width = 0;
+                pokemon1.Vida = 0;
+
+                //Enviar a la pantalla de victoria
+
+            }
+            else
+            {
+                campo.Width = WidthBarraEnemiga;
+                pokemon1.Vida -= Convert.ToInt32(Danio_Elemental(pokemon2.Tipo));
+                if(turnoMaquina == true)
+                {
+                    Turno();
+                }
+            }
+        }
     }
 }
