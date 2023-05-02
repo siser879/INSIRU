@@ -12,7 +12,7 @@ namespace CombateTests
             // Arrange
             Combate combate = new Combate();
             Button ataquePlacaje = combate.AtaquePlacaje;
-            var click = new RoutedEventArgs(Button.ClickEvent);
+            //var click = new RoutedEventArgs(Button.ClickEvent);
             double vidaEnemigoInicial = combate.pokemon_enemigo.Vida;
             double vidaEnemigoEsperada = vidaEnemigoInicial - 5;
 
