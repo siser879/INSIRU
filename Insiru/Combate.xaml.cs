@@ -83,6 +83,7 @@ namespace Insiru
             }
         }
 
+        //Placaje
         private void Ataque1_Click(object sender, RoutedEventArgs e)
         {
 
@@ -104,5 +105,32 @@ namespace Insiru
             
         }
 
+        //Curar
+        private void Ataque3_Click(object sender, RoutedEventArgs e)
+        {
+
+            double WidthBarraAliada = ((pokemon_aliado.Vida + 3) * 164) / pokemon_aliado_maxVida;
+
+            if (WidthBarraAliada <= 0)
+            {
+                Vida_Aliado.Width = 0;
+                pokemon_aliado.Vida = 0;
+
+                //Enviar a la pantalla de derrota
+
+            }
+            else if(WidthBarraAliada >= 164)
+            {
+
+                //Mostrar mensaje - Ya tienes la vida al máximo
+                MessageBox.Show("Ya tienes la vida al máximo");
+
+            }else
+            {
+                Vida_Aliado.Width = WidthBarraAliada;
+                pokemon_aliado.Vida += 3;
+            }
+            
+        }
     }
 }
