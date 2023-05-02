@@ -21,6 +21,7 @@ namespace Insiru
         private readonly int shiny_enemigo = 0;
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
+        private Boolean turnoJugador;
 
         public Combate(Pokemon pokemon_aliado, Pokemon pokemon_enemigo, int shiny1, int shiny2)
         {
@@ -57,7 +58,7 @@ namespace Insiru
             ArrayList nombres = Conector.obtener_Ataque();
 
             Ataque1.Content = nombres[0];
-            Ataque2.Content = nombres[1];
+            Ataque2.Content = "Esquivar";
             Ataque3.Content = nombres[2];
             Ataque4.Content = nombres[3];
 
@@ -83,6 +84,18 @@ namespace Insiru
             }
         }
 
+        //Turnos
+        private void turno() {
+            if (turnoJugador == true)
+            {
+                MessageBox.Show("Es turno del jugador");
+                turnoJugador = false;
+            }
+            else {
+                MessageBox.Show("Es turno de la maquina");
+                turnoJugador = true;
+            }
+        }
         //Placaje
         private void Ataque1_Click(object sender, RoutedEventArgs e)
         {
@@ -101,8 +114,32 @@ namespace Insiru
             {
                 Vida_Enemigo.Width = WidthBarraEnemiga;
                 pokemon_enemigo.Vida -= 5;
+                turno();
             }
             
+        }
+
+        //Esquivar
+        private void Ataque2_Click(object sender, RoutedEventArgs e)
+        {
+            double WidthBarraAliada = ((pokemon_aliado.Vida - 5) * 164) / pokemon_aliado_maxVida;
+
+            Random random = new Random();
+            int numeroAleatorio = random.Next(0, 10);
+
+            if (numeroAleatorio >= 5)
+            {
+                //implementar mensaje de que el ataque fue esquivado
+                turno();
+            }
+            else
+            {
+                //implementar mensaje de que el ataque no fue esquivado
+                Vida_Aliado.Width = WidthBarraAliada;
+                pokemon_aliado.Vida -= 5;
+                turno();
+            }
+
         }
 
         //Curar
@@ -129,8 +166,11 @@ namespace Insiru
             {
                 Vida_Aliado.Width = WidthBarraAliada;
                 pokemon_aliado.Vida += 3;
+                turno();
             }
             
         }
+
+
     }
 }
