@@ -21,11 +21,11 @@ namespace Insiru
     public partial class Combate : Window
     {
 
-        private Pokemon pokemon_aliado;
-        private Pokemon pokemon_enemigo;
+        private readonly Pokemon pokemon_aliado;
+        private readonly Pokemon pokemon_enemigo;
 
-        private int shiny_aliado = 0;
-        private int shiny_enemigo = 0;
+        private readonly int shiny_aliado = 0;
+        private readonly int shiny_enemigo = 0;
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
 
@@ -55,11 +55,11 @@ namespace Insiru
             pokemon_aliado_maxVida = pokemon_aliado.Vida;
             pokemon_enemigo_maxVida = pokemon_enemigo.Vida;
 
-            obtenerAtaques();
+            ObtenerAtaques();
 
         }
 
-        private void obtenerAtaques()
+        private void ObtenerAtaques()
         {
             ArrayList nombres = Conector.obtener_Ataque();
 
@@ -68,11 +68,11 @@ namespace Insiru
             Ataque3.Content = nombres[2];
             Ataque4.Content = nombres[3];
 
-            obtenerColor(pokemon_aliado.Tipo, Ataque4);
+            ObtenerColor(pokemon_aliado.Tipo, Ataque4);
 
         }
 
-        private void obtenerColor(string tipo, Button boton)
+        private void ObtenerColor(string tipo, Button boton)
         {
             switch (tipo)
             {
