@@ -13,15 +13,18 @@ namespace Insiru
 
     public partial class Combate : Window
     {
-
+        //Declaración del Pokemon aliado y enemigo
         private readonly Pokemon pokemon_aliado;
-        private readonly Pokemon pokemon_enemigo;
+        public readonly Pokemon pokemon_enemigo;
 
         private readonly int shiny_aliado = 0;
         private readonly int shiny_enemigo = 0;
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
         private Boolean turnoJugador;
+
+        //Declaración de variables públicas para acceder a los controles desde los test
+        public Button AtaquePlacaje { get; private set; }
 
         public Combate(Pokemon pokemon_aliado, Pokemon pokemon_enemigo, int shiny1, int shiny2)
         {
@@ -33,6 +36,12 @@ namespace Insiru
             shiny_aliado = shiny1;
             shiny_enemigo = shiny2;
 
+        }
+
+        public Combate()
+        {
+            InitializeComponent();
+            AtaquePlacaje = Ataque1;
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -85,7 +94,7 @@ namespace Insiru
         }
 
         //Turnos
-        private void turno() {
+        private void Turno() {
             if (turnoJugador == true)
             {
                 MessageBox.Show("Es turno del jugador");
@@ -96,6 +105,7 @@ namespace Insiru
                 turnoJugador = true;
             }
         }
+        
         //Placaje
         private void Ataque1_Click(object sender, RoutedEventArgs e)
         {
@@ -114,7 +124,7 @@ namespace Insiru
             {
                 Vida_Enemigo.Width = WidthBarraEnemiga;
                 pokemon_enemigo.Vida -= 5;
-                turno();
+                Turno();
             }
             
         }
@@ -130,14 +140,14 @@ namespace Insiru
             if (numeroAleatorio >= 5)
             {
                 //implementar mensaje de que el ataque fue esquivado
-                turno();
+                Turno();
             }
             else
             {
                 //implementar mensaje de que el ataque no fue esquivado
                 Vida_Aliado.Width = WidthBarraAliada;
                 pokemon_aliado.Vida -= 5;
-                turno();
+                Turno();
             }
 
         }
@@ -166,7 +176,7 @@ namespace Insiru
             {
                 Vida_Aliado.Width = WidthBarraAliada;
                 pokemon_aliado.Vida += 3;
-                turno();
+                Turno();
             }
             
         }
