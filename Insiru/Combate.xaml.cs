@@ -215,9 +215,9 @@ namespace Insiru
 
         private void Ataque1_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
         {
-            double WidthBarraEnemiga = ((pokemon.Vida - 5) * 164) / vidaMax;
+            double widthBarra = ((pokemon.Vida - 5) * 164) / vidaMax;
 
-            if (WidthBarraEnemiga <= 0)
+            if (widthBarra <= 0)
             {
                 campo.Width = 0;
                 pokemon.Vida = 0;
@@ -227,7 +227,7 @@ namespace Insiru
             }
             else
             {
-                campo.Width = WidthBarraEnemiga;
+                campo.Width = widthBarra;
                 pokemon.Vida -= 5;
                 if (turnoMaquina == true)
                 {
@@ -238,21 +238,18 @@ namespace Insiru
 
         private void Ataque2_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
         {
-            double WidthBarraAliada = ((pokemon.Vida - 5) * 164) / vidaMax;
+            double widthBarra = ((pokemon.Vida - 5) * 164) / vidaMax;
 
             Random random = new Random();
             int numeroAleatorio = random.Next(0, 10);
 
-            if (numeroAleatorio >= 5)
+            if (numeroAleatorio >= 0)
             {
-                //implementar mensaje de que el ataque fue esquivado
-                Turno();
+                MessageBox.Show("Ataque esquivado");
             }
             else
             {
-                //implementar mensaje de que el ataque no fue esquivado
-                campo.Width = WidthBarraAliada;
-                pokemon.Vida -= 5;
+
                 if (turnoMaquina == true)
                 {
                     Turno();
@@ -262,9 +259,9 @@ namespace Insiru
 
         private void Ataque3_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
         {
-            double WidthBarraAliada = ((pokemon.Vida + 3) * 164) / vidaMax;
+            double widthBarra = ((pokemon.Vida + 3) * 164) / vidaMax;
 
-            if (WidthBarraAliada <= 0)
+            if (widthBarra <= 0)
             {
                 campo.Width = 0;
                 pokemon.Vida = 0;
@@ -272,7 +269,7 @@ namespace Insiru
                 //Enviar a la pantalla de derrota
 
             }
-            else if (WidthBarraAliada >= 164)
+            else if (widthBarra >= 164)
             {
 
                 //Mostrar mensaje - Ya tienes la vida al máximo
@@ -281,7 +278,7 @@ namespace Insiru
             }
             else
             {
-                campo.Width = WidthBarraAliada;
+                campo.Width = widthBarra;
                 pokemon.Vida += 3;
                 if (turnoMaquina == true)
                 {
@@ -292,9 +289,9 @@ namespace Insiru
 
         private void Ataque4_Metodo(Rectangle campo, Pokemon pokemon1, Pokemon pokemon2, int vidaMax, Boolean turnoMaquina)
         {
-            double WidthBarraEnemiga = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo)) * 164) / vidaMax;
+            double widthBarra = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo)) * 164) / vidaMax;
 
-            if (WidthBarraEnemiga <= 0)
+            if (widthBarra <= 0)
             {
                 campo.Width = 0;
                 pokemon1.Vida = 0;
@@ -304,7 +301,7 @@ namespace Insiru
             }
             else
             {
-                campo.Width = WidthBarraEnemiga;
+                campo.Width = widthBarra;
                 pokemon1.Vida -= Convert.ToInt32(Danio_Elemental(pokemon2.Tipo));
                 if(turnoMaquina == true)
                 {
