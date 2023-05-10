@@ -181,6 +181,10 @@ namespace Insiru
             
         }
 
-
+        private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Has abandonado la partida");
+            Close();
+        }
     }
 }

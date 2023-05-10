@@ -13,7 +13,7 @@
         <CollectionViewSource x:Key="pokemonViewSource1" Source="{Binding Pokemon, Source={StaticResource insiru_Enemigo}}"/>
     </Window.Resources>
     <Grid>
-        <Label Content="SELECTOR DE POKEMONS" HorizontalAlignment="Left" Margin="142,46,0,0" VerticalAlignment="Top" Height="62" Width="504" FontFamily="Pokemon Classic" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="SELECTOR DE POKEMON" HorizontalAlignment="Left" Margin="142,46,0,0" VerticalAlignment="Top" Height="62" Width="504" FontFamily="Pokemon Classic" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <CheckBox x:Name="Shiny_Aliado" Content="" HorizontalAlignment="Left" Height="18" Margin="581,152,0,0" VerticalAlignment="Top" Width="17">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2" />

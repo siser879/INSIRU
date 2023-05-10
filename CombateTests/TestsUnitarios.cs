@@ -1,6 +1,7 @@
 using Insiru;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace CombateTests
 {
@@ -9,10 +10,11 @@ namespace CombateTests
         [Fact]
         public void TestUnitarios_Placaje_BajaVidaRivalEnTresDeVida()
         {
+
             // Arrange
             Combate combate = new Combate();
             Button ataquePlacaje = combate.AtaquePlacaje;
-            //var click = new RoutedEventArgs(Button.ClickEvent);
+            var click = new RoutedEventArgs(Button.ClickEvent);
             double vidaEnemigoInicial = combate.pokemon_enemigo.Vida;
             double vidaEnemigoEsperada = vidaEnemigoInicial - 5;
 
