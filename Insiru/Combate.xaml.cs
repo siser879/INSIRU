@@ -299,6 +299,12 @@ namespace Insiru
                 campo.Width = 0;
                 pokemon1.Vida = 0;
 
+        private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Has abandonado la partida");
+            Close();
+        }
+    }
                 //Enviar a la pantalla de victoria
 
             }
