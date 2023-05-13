@@ -74,13 +74,15 @@ namespace Insiru
             Ataque3.Content = nombres[2];
 
             string nombre_ataque = "";
-            if (pokemon_aliado.Tipo == "Fuego") 
+            if (pokemon_aliado.Tipo == "Fuego")
             {
-                nombre_ataque = "Lanzallamas"; 
-            } else if (pokemon_aliado.Tipo == "Agua")
+                nombre_ataque = "Lanzallamas";
+            }
+            else if (pokemon_aliado.Tipo == "Agua")
             {
                 nombre_ataque = "Pistola Agua";
-            } else if (pokemon_aliado.Tipo == "Planta") 
+            }
+            else if (pokemon_aliado.Tipo == "Planta")
             {
                 nombre_ataque = "Hoja Afilada";
             };
@@ -110,7 +112,8 @@ namespace Insiru
         }
 
         //Turnos
-        private void Turno() {
+        private void Turno()
+        {
             //if (turnoJugador == true)
             //{
             //    MessageBox.Show("Es turno del jugador");
@@ -137,7 +140,7 @@ namespace Insiru
             MessageBox.Show("Es turno del jugador");
 
         }
-        
+
         //Placaje
         private void Ataque1_Click(object sender, RoutedEventArgs e)
         {
@@ -299,12 +302,6 @@ namespace Insiru
                 campo.Width = 0;
                 pokemon1.Vida = 0;
 
-        private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Has abandonado la partida");
-            Close();
-        }
-    }
                 //Enviar a la pantalla de victoria
 
             }
@@ -312,11 +309,17 @@ namespace Insiru
             {
                 campo.Width = WidthBarraEnemiga;
                 pokemon1.Vida -= Convert.ToInt32(Danio_Elemental(pokemon2.Tipo));
-                if(turnoMaquina == true)
+                if (turnoMaquina == true)
                 {
                     Turno();
                 }
             }
+        }
+
+        private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Has abandonado la partida");
+            Close();
         }
     }
 }
