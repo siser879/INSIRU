@@ -12,8 +12,8 @@
         <local:Insiru_Enemigo x:Key="insiru_Enemigo"/>
         <CollectionViewSource x:Key="pokemonViewSource1" Source="{Binding Pokemon, Source={StaticResource insiru_Enemigo}}"/>
     </Window.Resources>
-    <Grid>
-        <Label Content="SELECTOR DE POKEMON" HorizontalAlignment="Left" Margin="142,46,0,0" VerticalAlignment="Top" Height="62" Width="504" FontFamily="Pokemon Classic" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    <Grid Background="#002860">
+        <Label Content="SELECTOR DE POKEMON" HorizontalAlignment="Center" Margin="0,41,0,0" VerticalAlignment="Top" Height="62" Width="740" FontFamily="Pokemon Classic" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
         <CheckBox x:Name="Shiny_Aliado" Content="" HorizontalAlignment="Left" Height="18" Margin="581,152,0,0" VerticalAlignment="Top" Width="17">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2" />
@@ -48,7 +48,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Pokemon Aliado: " HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Pokemon Classic" FontWeight="Bold"/>
+            <Label Grid.Column="0" Content="Pokemon Aliado: " HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Pokemon Classic" FontWeight="Bold" Foreground="White"/>
             <ComboBox x:Name="Pokemon_Aliado" Grid.Column="1" DisplayMemberPath="Nombre" HorizontalAlignment="Left" Height="NaN" ItemsSource="{Binding}" Margin="19,0,0,0" VerticalAlignment="Center" Width="196">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -65,7 +65,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Content="Pokemon Enemigo: " HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Pokemon Classic" FontWeight="Bold"/>
+            <Label Grid.Column="0" Content="Pokemon Enemigo: " HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Pokemon Classic" FontWeight="Bold" Foreground="White"/>
             <ComboBox x:Name="Pokemon_Enemigo" Grid.Column="1" DisplayMemberPath="Nombre" HorizontalAlignment="Center" Height="NaN" ItemsSource="{Binding}" VerticalAlignment="Center" Width="195">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>

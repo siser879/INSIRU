@@ -33,10 +33,10 @@ namespace Insiru
         {
             if (victoria_derrota == true)
             {
-                victoriaDerrotaRendicion.Content = "VICTORIA";
+                victoriaDerrotaRendicion.Content = "¡VICTORIA!";
             }
             else {
-                victoriaDerrotaRendicion.Content = "DERROTA";
+                victoriaDerrotaRendicion.Content = "¡DERROTA!";
             }
         }
 

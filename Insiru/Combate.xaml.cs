@@ -23,6 +23,8 @@ namespace Insiru
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
 
+        private bool boton_start = false;
+
         //Declaración de variables públicas para acceder a los controles desde los test
         public Button AtaquePlacaje { get; private set; }
 
@@ -403,7 +405,7 @@ namespace Insiru
         private void Ataque1_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean ganador)
         {
 
-            double widthBarra = ((pokemon.Vida - 5) * 164) / vidaMax;
+            double widthBarra = ((pokemon.Vida - 5) * 127) / vidaMax;
 
             if (widthBarra <= 0)
             {
@@ -424,7 +426,7 @@ namespace Insiru
 
         private void Ataque3_Metodo(Rectangle campo, Pokemon pokemon, Pokemon enemigo, int vidaMax, Boolean aliado)
         {
-            double widthBarra = ((pokemon.Vida + 3) * 164) / vidaMax;
+            double widthBarra = ((pokemon.Vida + 3) * 127) / vidaMax;
 
             if (pokemon.Vida == vidaMax)
             {
@@ -444,7 +446,7 @@ namespace Insiru
             {
                 if (pokemon.Vida + 3 > vidaMax)
                 {
-                    campo.Width = 164;
+                    campo.Width = 127;
                     pokemon.Vida = vidaMax;
                 }
                 else
@@ -458,7 +460,7 @@ namespace Insiru
         private void Ataque4_Metodo(Rectangle campo, Pokemon pokemon1, Pokemon pokemon2, int vidaMax, Boolean ganador)
         {
 
-            double widthBarra = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo, pokemon1.Tipo)) * 164) / vidaMax;
+            double widthBarra = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo, pokemon1.Tipo)) * 127) / vidaMax;
 
             if (widthBarra <= 0)
             {
@@ -485,5 +487,18 @@ namespace Insiru
             Close();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!boton_start)
+            {
+                boton_start = true;
+                AbandonarPartida.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                boton_start = false;
+                AbandonarPartida.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

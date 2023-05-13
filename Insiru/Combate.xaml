@@ -5,12 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Insiru"
         mc:Ignorable="d"
-        Title="Combate" Height="600" Width="1153" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid Loaded="Grid_Loaded">
-        <Image x:Name="Fondo_Combate" HorizontalAlignment="Left" Height="446" VerticalAlignment="Top" Width="720" Source="/Images/Fondos de Combate/Fondo Combate (1).png" Margin="68,86,0,0"/>
-        <Image HorizontalAlignment="Left" Height="96" Margin="68,122,0,0" VerticalAlignment="Top" Width="262" Source="/Images/Gui/Vida enemigo.png"/>
-        <Label x:Name="Nombre_Enemigo" Content="Poke Enemigo" HorizontalAlignment="Left" Height="27" Margin="86,132,0,0" VerticalAlignment="Top" Width="192" FontFamily="Pokemon Classic" Foreground="White"/>
-        <Rectangle x:Name="Vida_Enemigo" HorizontalAlignment="Left" Height="10" Margin="146,164,0,0" VerticalAlignment="Top" Width="164" Fill="#FF08FF00" RenderTransformOrigin="0.5,0.5">
+        Title="Combate" Height="876" Width="788" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="FuturisticButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#232323"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="50" 
+                                Margin="10">
+                                <ContentPresenter x:Name="contentPresenter" 
+                                              HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                            </Border>
+                            <Border x:Name="overlay" Background="#FFFFFF" 
+                                BorderThickness="0" 
+                                CornerRadius="50" 
+                                Margin="10" 
+                                Opacity="0">
+                                <ContentPresenter x:Name="overlayContentPresenter" 
+                                              HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="overlay" 
+                                                     Storyboard.TargetProperty="Opacity" 
+                                                     From="0" To="0.6" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="overlay" 
+                                                     Storyboard.TargetProperty="Opacity" 
+                                                     From="0.6" To="0" Duration="0:0:0.2" 
+                                                     BeginTime="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="overlay" Property="Opacity" Value="0.3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF8900"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RendirseButton" TargetType="{x:Type Button}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <DrawingBrush Viewport="0,0,30,30" ViewportUnits="Absolute">
+                        <DrawingBrush.Drawing>
+                            <GeometryDrawing Brush="#F44336" Geometry="F1M0,0L30,0 30,30 0,30z" />
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border BorderThickness="2" BorderBrush="#F44336" Background="#F44336" CornerRadius="5"/>
+                            <Border BorderThickness="1" BorderBrush="#FFFFFF" Background="#FFFFFF" CornerRadius="3"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="AbandonarPartidaButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Content" Value="Abandonar partida"/>
+            <Setter Property="Margin" Value="991,741,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="97"/>
+        </Style>
+
+        <Style x:Key="InvisibleCircleButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="Transparent" Stroke="Transparent"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+
+    <Grid Loaded="Grid_Loaded" >
+        <Image HorizontalAlignment="Center" Height="337" Margin="0,466,0,0" VerticalAlignment="Top" Width="656" Source="/Images/GUI/fondo.png"/>
+
+        <Image x:Name="Fondo_Combate" HorizontalAlignment="Center" Height="377" VerticalAlignment="Top" Width="606" Source="/Images/Fondos de Combate/Fondo Combate (1).png" Margin="0,40,0,0"/>
+        <Image HorizontalAlignment="Left" Height="834" Margin="-82,5,0,0" VerticalAlignment="Top" Width="950" Source="/Images/GUI/3ds.png"/>
+        <Image HorizontalAlignment="Left" Height="99" Margin="132,94,0,0" VerticalAlignment="Top" Width="208" Source="/Images/Gui/Vida enemigo.png"/>
+        <Label x:Name="Nombre_Enemigo" Content="Poke Enemigo" HorizontalAlignment="Left" Height="26" Margin="144,100,0,0" VerticalAlignment="Top" Width="128" FontFamily="Pokemon Classic" Foreground="White" FontSize="9"/>
+        <Rectangle x:Name="Vida_Enemigo" HorizontalAlignment="Left" Height="8" Margin="195,127,0,0" VerticalAlignment="Top" Width="127" Fill="#FF08FF00" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,10 +134,10 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Image x:Name="Pokemon_Enemigo" HorizontalAlignment="Left" Height="264" Margin="454,132,0,0" VerticalAlignment="Top" Width="264"/>
-        <Image HorizontalAlignment="Left" Height="96" Margin="526,350,0,0" VerticalAlignment="Top" Width="262" Source="/Images/Gui/Vida Aliado.png"/>
-        <Label x:Name="Nombre_Aliado" Content="Poke Aliado" HorizontalAlignment="Left" Height="28" Margin="562,362,0,0" VerticalAlignment="Top" Width="190" FontFamily="Pokemon Classic" FontSize="12" Foreground="White"/>
-        <Rectangle x:Name="Vida_Aliado" HorizontalAlignment="Left" Height="10" Margin="586,392,0,0" VerticalAlignment="Top" Width="164" Fill="#FF08FF00" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="Pokemon_Enemigo" HorizontalAlignment="Left" Height="222" Margin="402,59,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image HorizontalAlignment="Left" Height="99" Margin="434,221,0,0" VerticalAlignment="Top" Width="208" Source="/Images/Gui/Vida Aliado.png"/>
+        <Label x:Name="Nombre_Aliado" Content="Poke Aliado" HorizontalAlignment="Left" Height="26" Margin="466,229,0,0" VerticalAlignment="Top" Width="128" FontFamily="Pokemon Classic" FontSize="9" Foreground="White"/>
+        <Rectangle x:Name="Vida_Aliado" HorizontalAlignment="Left" Height="8" Margin="482,254,0,0" VerticalAlignment="Top" Width="126" Fill="#FF08FF00" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -33,13 +147,25 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Image x:Name="Pokemon_Aliado" HorizontalAlignment="Left" Height="264" Margin="168,243,0,0" VerticalAlignment="Top" Width="264"/>
+        <Image x:Name="Pokemon_Aliado" HorizontalAlignment="Left" Height="222" Margin="178,157,0,0" VerticalAlignment="Top" Width="210"/>
 
-        <Button x:Name="Ataque1" Content="" HorizontalAlignment="Left" Margin="884,82,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque1_Click"/>
-        <Button x:Name="Ataque2" Content="" HorizontalAlignment="Left" Margin="884,188,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque2_Click"/>
-        <Button x:Name="Ataque3" Content="" HorizontalAlignment="Left" Margin="884,293,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque3_Click"/>
-        <Button x:Name="Ataque4" Content="" HorizontalAlignment="Left" Margin="884,398,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque4_Click"/>
-        <Button x:Name="AbandonarPartida" Content="Huir" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="42" Click="AbandonarPartida_Click"/>
+        <Button x:Name="Ataque1" Style="{StaticResource FuturisticButtonStyle}" 
+        Content="Ataque 1" HorizontalAlignment="Left" Margin="208,504,0,0" 
+        VerticalAlignment="Top" Height="100" Width="170" Click="Ataque1_Click"/>
+        <Button x:Name="Ataque2" Style="{StaticResource FuturisticButtonStyle}" 
+        Content="Ataque 2" HorizontalAlignment="Left" Margin="396,504,0,0" 
+        VerticalAlignment="Top" Height="100" Width="170" Click="Ataque2_Click"/>
+        <Button x:Name="Ataque3" Style="{StaticResource FuturisticButtonStyle}" 
+        Content="Ataque 3" HorizontalAlignment="Left" Margin="208,638,0,0" 
+        VerticalAlignment="Top" Height="100" Width="170" Click="Ataque3_Click"/>
+        <Button x:Name="Ataque4" Style="{StaticResource FuturisticButtonStyle}" 
+        Content="Ataque 4" HorizontalAlignment="Left" Margin="396,638,0,0" 
+        VerticalAlignment="Top" Height="100" Width="170" Click="Ataque4_Click"/>
+
+        <Button x:Name="AbandonarPartida" Click="AbandonarPartida_Click" Style="{StaticResource AbandonarPartidaButton}" Width="130" Margin="200,792,0,0" Visibility="Hidden"/>
+        <Button Content="" HorizontalAlignment="Left" Height="26" Margin="634,683,0,0" VerticalAlignment="Top" Width="26" Style="{StaticResource InvisibleCircleButton}" Click="Button_Click"/>
+
+
     </Grid>
 
 
