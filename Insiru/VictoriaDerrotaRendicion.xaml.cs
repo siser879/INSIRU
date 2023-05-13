@@ -19,20 +19,32 @@ namespace Insiru
     /// </summary>
     public partial class VictoriaDerrotaRendicion : Window
     {
-        public VictoriaDerrotaRendicion()
+        private Boolean victoria_derrota;
+
+        public VictoriaDerrotaRendicion(Boolean esVictoria)
         {
             InitializeComponent();
+            
+            victoria_derrota= esVictoria;
+            cambioTexto();
         }
 
-        public void cambioTexto(Boolean esVictoria)
+        public void cambioTexto()
         {
-            if (esVictoria == true)
+            if (victoria_derrota == true)
             {
                 victoriaDerrotaRendicion.Content = "VICTORIA";
             }
             else {
                 victoriaDerrotaRendicion.Content = "DERROTA";
             }
+        }
+
+        private void revancha_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow volverAEmpezar = new MainWindow();
+            volverAEmpezar.Show();
+            Close();
         }
     }
 }

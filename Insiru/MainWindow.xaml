@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Insiru"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Selector de Pokemon" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <local:Insiru_Aliado x:Key="insiru_Aliado"/>
         <CollectionViewSource x:Key="pokemonViewSource" Source="{Binding Pokemon, Source={StaticResource insiru_Aliado}}"/>

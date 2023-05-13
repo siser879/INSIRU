@@ -177,10 +177,10 @@ namespace Insiru
             {
                 case 1:
                     //ALIADO BAJA VIDA ENEMIGO
-                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida);
+                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     //ENEMIGO BAJA VIDA ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida);
+                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
 
                 case 2:
@@ -190,7 +190,7 @@ namespace Insiru
                     {
                         //ALIADO BAJA VIDA ENEMIGO
                         MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
-                        Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida);
+                        Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     }
                     else
                     {
@@ -201,7 +201,7 @@ namespace Insiru
 
                 case 3:
                     //ALIADO BAJA VIDA ENEMIGO
-                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida);
+                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     //ENEMIGO SE CURA
                     mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
@@ -209,10 +209,10 @@ namespace Insiru
 
                 case 4:
                     //ALIADO BAJA VIDA ENEMIGO
-                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida);
+                    Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     //ENEMIGO ELEMENTAL A ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida);
+                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
             }
         }
@@ -233,7 +233,7 @@ namespace Insiru
                     {
                         //ENEMIGO BAJA VIDA ALIADO
                         MessageBox.Show(pokemon_aliado.Nombre + " fallo al esquivar!");
-                        Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida);
+                        Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     }
                     else
                     {
@@ -261,7 +261,7 @@ namespace Insiru
                     {
                         //ENEMIGO BAJA VIDA ALIADO
                         MessageBox.Show(pokemon_aliado.Nombre + " fallo al esquivar!");
-                        Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida);
+                        Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     }
                     else
                     {
@@ -286,7 +286,7 @@ namespace Insiru
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
                     //ENEMIGO BAJA VIDA ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida);
+                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
 
                 case 2:
@@ -307,7 +307,7 @@ namespace Insiru
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
                     //ENEMIGO ELEMENTAL A ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida);
+                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
 
             }
@@ -324,10 +324,10 @@ namespace Insiru
             {
                 case 1:
                     //ALIADO ELEMENTAL A ENEMIGO
-                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida);
+                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     //ENEMIGO BAJA VIDA ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida);
+                    Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
 
                 case 2:
@@ -337,7 +337,7 @@ namespace Insiru
                     {
                         //ALIADO BAJA VIDA ENEMIGO
                         MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
-                        Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida);
+                        Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     }
                     else
                     {
@@ -348,7 +348,7 @@ namespace Insiru
 
                 case 3:
                     //ALIADO ELEMENTAL A ENEMIGO
-                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida);
+                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     //ENEMIGO SE CURA
                     mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
@@ -356,10 +356,10 @@ namespace Insiru
 
                 case 4:
                     //ALIADO ELEMENTAL A ENEMIGO
-                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida);
+                    Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     //ENEMIGO ELEMENTAL A ALIADO
                     mensaje_ataque_enemigo(ataque_enemigo);
-                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida);
+                    Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
             }
         }
@@ -415,7 +415,7 @@ namespace Insiru
             }
         }
 
-        private void Ataque1_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax)
+        private void Ataque1_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean ganador)
         {
 
             double widthBarra = ((pokemon.Vida - 5) * 164) / vidaMax;
@@ -425,7 +425,9 @@ namespace Insiru
                 campo.Width = 0;
                 pokemon.Vida = 0;
 
-                //Enviar a la pantalla de victoria o derrota
+                VictoriaDerrotaRendicion pantallafinal = new VictoriaDerrotaRendicion(ganador);
+                pantallafinal.Show();
+                Close();
 
             }
             else
@@ -439,72 +441,36 @@ namespace Insiru
         {
             double widthBarra = ((pokemon.Vida + 3) * 164) / vidaMax;
 
-            if (numeroAleatorio >= 5)
+            if (pokemon.Vida == vidaMax)
             {
-                //implementar mensaje de que el ataque fue esquivado
-                Turno();
+                if (aliado)
+                {
+                    //Mostrar mensaje - Ya tienes la vida al máximo
+                    MessageBox.Show(pokemon.Nombre + " se intentado curar pero no tuvo efecto.");
+                }
+                else
+                {
+                    //Mostrar mensaje - Ya tienes la vida al máximo
+                    MessageBox.Show(enemigo.Nombre + " se intento curar pero no tuvo efecto.");
+                }
+
             }
             else
             {
-                //implementar mensaje de que el ataque no fue esquivado
-                campo.Width = WidthBarraAliada;
-                pokemon.Vida -= 5;
-                if (turnoMaquina == true)
+                if (pokemon.Vida + 3 > vidaMax)
                 {
-                    Turno();
+                    campo.Width = 164;
+                    pokemon.Vida = vidaMax;
+                }
+                else
+                {
+                    campo.Width = widthBarra;
+                    pokemon.Vida += 3;
                 }
             }
         }
 
-        private void Ataque3_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
-        {
-            double WidthBarraAliada = ((pokemon.Vida + 3) * 164) / vidaMax;
-
-            if (WidthBarraAliada <= 0)
-            {
-                campo.Width = 0;
-                pokemon.Vida = 0;
-
-                //Enviar a la pantalla de derrota
-
-            }
-            else if (WidthBarraAliada >= 164)
-            {
-
-                //Mostrar mensaje - Ya tienes la vida al máximo
-                MessageBox.Show("Ya tienes la vida al máximo");
-
-            }
-            else
-            {
-                campo.Width = WidthBarraAliada;
-                pokemon.Vida += 3;
-                if (turnoMaquina == true)
-                {
-                    Turno();
-
-                //Enviar a la pantalla de derrota
-
-            }
-            else if (WidthBarraAliada >= 164)
-            {
-
-                //Mostrar mensaje - Ya tienes la vida al máximo
-                MessageBox.Show("Ya tienes la vida al máximo");
-
-            }
-            else
-            {
-                campo.Width = WidthBarraAliada;
-                pokemon.Vida += 3;
-                if (turnoMaquina == true)
-                {
-                    Turno();
-                }
-            }
-        }
-
-        private void Ataque4_Metodo(Rectangle campo, Pokemon pokemon1, Pokemon pokemon2, int vidaMax)
+        private void Ataque4_Metodo(Rectangle campo, Pokemon pokemon1, Pokemon pokemon2, int vidaMax, Boolean ganador)
         {
 
             double widthBarra = ((pokemon1.Vida - Danio_Elemental(pokemon2.Tipo, pokemon1.Tipo)) * 164) / vidaMax;
@@ -514,7 +480,9 @@ namespace Insiru
                 campo.Width = 0;
                 pokemon1.Vida = 0;
 
-                //Enviar a la pantalla de victoria
+                VictoriaDerrotaRendicion pantallafinal = new VictoriaDerrotaRendicion(ganador);
+                pantallafinal.Show();
+                Close();
 
             }
             else
@@ -527,6 +495,8 @@ namespace Insiru
         private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Has abandonado la partida");
+            VictoriaDerrotaRendicion pantallafinal = new VictoriaDerrotaRendicion(false);
+            pantallafinal.Show();
             Close();
         }
 
