@@ -23,6 +23,9 @@ namespace Insiru
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
         private Boolean turnoJugador;
+        private Boolean esVictoria;
+
+        VictoriaDerrotaRendicion ventana = new VictoriaDerrotaRendicion();
 
         //Declaración de variables públicas para acceder a los controles desde los test
         public Button AtaquePlacaje { get; private set; }
@@ -224,8 +227,14 @@ namespace Insiru
             {
                 campo.Width = 0;
                 pokemon.Vida = 0;
+                esVictoria = true;
 
-                //Enviar a la pantalla de victoria
+                if (esVictoria == true)
+                {
+                    ventana.cambioTexto(esVictoria);
+                    ventana.Show();
+                    Close();
+                }
 
             }
             else
@@ -271,8 +280,14 @@ namespace Insiru
             {
                 campo.Width = 0;
                 pokemon.Vida = 0;
+                esVictoria = false;
 
-                //Enviar a la pantalla de derrota
+                if (esVictoria == false)
+                {
+                    ventana.cambioTexto(esVictoria);
+                    ventana.Show();
+                    Close();
+                }
 
             }
             else if (WidthBarraAliada >= 164)
@@ -301,8 +316,13 @@ namespace Insiru
             {
                 campo.Width = 0;
                 pokemon1.Vida = 0;
+                esVictoria = true;
 
-                //Enviar a la pantalla de victoria
+                if (esVictoria == true) {
+                    ventana.cambioTexto(esVictoria);
+                    ventana.Show();
+                    Close();
+                }
 
             }
             else
@@ -318,7 +338,9 @@ namespace Insiru
 
         private void AbandonarPartida_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Has abandonado la partida");
+            esVictoria = false;
+            ventana.cambioTexto(esVictoria);
+            ventana.Show();
             Close();
         }
     }
