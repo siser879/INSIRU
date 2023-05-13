@@ -22,7 +22,6 @@ namespace Insiru
         private readonly int shiny_enemigo = 0;
         private int pokemon_aliado_maxVida;
         private int pokemon_enemigo_maxVida;
-        private Boolean turnoJugador;
 
         //Declaración de variables públicas para acceder a los controles desde los test
         public Button AtaquePlacaje { get; private set; }
@@ -66,8 +65,6 @@ namespace Insiru
         private void ObtenerAtaques()
         {
             ArrayList nombres = Conector.obtener_Ataque();
-
-            //PRUEBA DE CAMBIO
 
             Ataque1.Content = nombres[0];
             Ataque2.Content = "Esquivar";
@@ -115,20 +112,6 @@ namespace Insiru
         private int elegir_ataque_enemigo()
         {
             Random rnd = new Random();
-
-            string nombre_ataque = "";
-            if (pokemon_enemigo.Tipo == "Fuego")
-            {
-                nombre_ataque = "Lanzallamas";
-            }
-            else if (pokemon_enemigo.Tipo == "Agua")
-            {
-                nombre_ataque = "Pistola Agua";
-            }
-            else if (pokemon_enemigo.Tipo == "Planta")
-            {
-                nombre_ataque = "Hoja Afilada";
-            };
 
             int eleccion = rnd.Next(1, 5);
 
