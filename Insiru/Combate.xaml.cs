@@ -162,8 +162,8 @@ namespace Insiru
         {
             Random random = new Random();
 
-            if (random.Next(0, 10) >= 5){ return true; }
-            else{ return false; }
+            if (random.Next(0, 10) >= 5) { return true; }
+            else { return false; }
         }
 
         //Placaje
@@ -439,30 +439,67 @@ namespace Insiru
         {
             double widthBarra = ((pokemon.Vida + 3) * 164) / vidaMax;
 
-            if(pokemon.Vida == vidaMax)
+            if (numeroAleatorio >= 5)
             {
-                if (aliado)
-                {
-                    //Mostrar mensaje - Ya tienes la vida al máximo
-                    MessageBox.Show(pokemon.Nombre + " se intentado curar pero no tuvo efecto.");
-                }
-                else
-                {
-                    //Mostrar mensaje - Ya tienes la vida al máximo
-                    MessageBox.Show(enemigo.Nombre + " se intento curar pero no tuvo efecto.");
-                }
-                
-            }else
+                //implementar mensaje de que el ataque fue esquivado
+                Turno();
+            }
+            else
             {
-                if(pokemon.Vida + 3 > vidaMax)
+                //implementar mensaje de que el ataque no fue esquivado
+                campo.Width = WidthBarraAliada;
+                pokemon.Vida -= 5;
+                if (turnoMaquina == true)
                 {
-                    campo.Width = 164;
-                    pokemon.Vida = vidaMax;
+                    Turno();
                 }
-                else
+            }
+        }
+
+        private void Ataque3_Metodo(Rectangle campo, Pokemon pokemon, int vidaMax, Boolean turnoMaquina)
+        {
+            double WidthBarraAliada = ((pokemon.Vida + 3) * 164) / vidaMax;
+
+            if (WidthBarraAliada <= 0)
+            {
+                campo.Width = 0;
+                pokemon.Vida = 0;
+
+                //Enviar a la pantalla de derrota
+
+            }
+            else if (WidthBarraAliada >= 164)
+            {
+
+                //Mostrar mensaje - Ya tienes la vida al máximo
+                MessageBox.Show("Ya tienes la vida al máximo");
+
+            }
+            else
+            {
+                campo.Width = WidthBarraAliada;
+                pokemon.Vida += 3;
+                if (turnoMaquina == true)
                 {
-                    campo.Width = widthBarra;
-                    pokemon.Vida += 3;
+                    Turno();
+
+                //Enviar a la pantalla de derrota
+
+            }
+            else if (WidthBarraAliada >= 164)
+            {
+
+                //Mostrar mensaje - Ya tienes la vida al máximo
+                MessageBox.Show("Ya tienes la vida al máximo");
+
+            }
+            else
+            {
+                campo.Width = WidthBarraAliada;
+                pokemon.Vida += 3;
+                if (turnoMaquina == true)
+                {
+                    Turno();
                 }
             }
         }
