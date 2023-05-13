@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VictoriaDerrotaRendicion" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="victoriaDerrotaRendicion" Content="" HorizontalAlignment="Center" Height="99" Margin="0,42,0,0" VerticalAlignment="Top" Width="444" FontSize="48" FontFamily="Pokemon Classic"/>
+        <Label x:Name="victoriaDerrotaRendicion" Content="" HorizontalAlignment="Center" Height="99" Margin="0,42,0,0" VerticalAlignment="Top" Width="444" FontSize="48" FontFamily="Pokemon Classic" HorizontalContentAlignment="Center"/>
         <Button x:Name="revancha" Content="REVANCHA" HorizontalAlignment="Center" Height="68" Margin="0,250,0,0" VerticalAlignment="Top" Width="360" FontSize="24" FontFamily="Pokemon Classic" Click="revancha_Click"/>
 
     </Grid>

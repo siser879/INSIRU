@@ -39,7 +39,7 @@
         <Button x:Name="Ataque2" Content="" HorizontalAlignment="Left" Margin="884,188,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque2_Click"/>
         <Button x:Name="Ataque3" Content="" HorizontalAlignment="Left" Margin="884,293,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque3_Click"/>
         <Button x:Name="Ataque4" Content="" HorizontalAlignment="Left" Margin="884,398,0,0" VerticalAlignment="Top" Height="100" Width="202" Click="Ataque4_Click"/>
-        <Button x:Name="AbandonarPartida" Content="Huir" HorizontalAlignment="Left" Height="63" Margin="68,496,0,0" VerticalAlignment="Top" Width="100" Click="AbandonarPartida_Click"/>
+        <Button x:Name="AbandonarPartida" Content="Huir" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="42" Click="AbandonarPartida_Click"/>
     </Grid>
 
 

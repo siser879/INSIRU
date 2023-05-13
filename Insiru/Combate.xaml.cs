@@ -131,7 +131,7 @@ namespace Insiru
             };
 
             int eleccion = rnd.Next(1, 5);
-            eleccion = 4;
+
             return eleccion;
         }
 
@@ -266,7 +266,7 @@ namespace Insiru
                     else
                     {
                         //ALIADO ESQUIVA CORRECTAMENTE
-                        MessageBox.Show("Ataque esquivado por " + pokemon_enemigo.Nombre + "!");
+                        MessageBox.Show("Ataque esquivado por " + pokemon_aliado.Nombre + "!");
                     }
                     break;
             }
