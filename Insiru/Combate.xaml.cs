@@ -273,6 +273,8 @@ namespace Insiru
                     break;
 
                 case 2:
+                    //ALIADO SE CURA
+                    Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
                     mensaje_ataque_enemigo(ataque_enemigo);
                     MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
                     break;
