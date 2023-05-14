@@ -17,34 +17,50 @@ namespace Insiru
     /// <summary>
     /// Lógica de interacción para VictoriaDerrotaRendicion.xaml
     /// </summary>
+    
+    // Clase para mostrar si el usuario ganó o perdió y permitir la opción de jugar de nuevo
     public partial class VictoriaDerrotaRendicion : Window
     {
+        // Variable para indicar si el usuario ganó o perdió
         private Boolean victoria_derrota;
 
+        // Constructor de la clase
         public VictoriaDerrotaRendicion(Boolean esVictoria)
         {
             InitializeComponent();
-            
-            victoria_derrota= esVictoria;
+
+            // Almacenar el valor de si el usuario ganó o perdió
+            victoria_derrota = esVictoria;
+
+            // Llamar al método para cambiar el texto según si el usuario ganó o perdió
             cambioTexto();
         }
 
+        // Método para cambiar el texto en la ventana según si el usuario ganó o perdió
         public void cambioTexto()
         {
+            // Si el usuario ganó, cambiar el texto a "¡VICTORIA!"
             if (victoria_derrota == true)
             {
                 victoriaDerrotaRendicion.Content = "¡VICTORIA!";
             }
-            else {
+            // Si el usuario perdió, cambiar el texto a "¡DERROTA!"
+            else
+            {
                 victoriaDerrotaRendicion.Content = "¡DERROTA!";
             }
         }
 
+        // Método para manejar el evento de hacer clic en el botón "revancha"
         private void revancha_Click(object sender, RoutedEventArgs e)
         {
+            // Crear una nueva instancia de la ventana principal del juego
             MainWindow volverAEmpezar = new MainWindow();
+            // Mostrar la nueva ventana
             volverAEmpezar.Show();
+            // Cerrar la ventana actual
             Close();
         }
     }
+
 }
