@@ -53,6 +53,14 @@ namespace Insiru
             shiny_aliado = shiny1;
             shiny_enemigo = shiny2;
 
+            //Seleccion de un fondo de Combate aleatorio
+            Random rnd = new Random();
+            int eleccion = rnd.Next(1, 4);
+
+            string rutaNuevaImagen = "/Images/Fondos de Combate/Fondo Combate (" + eleccion + ").png";
+            BitmapImage nuevaImagen = new BitmapImage(new Uri(rutaNuevaImagen, UriKind.RelativeOrAbsolute));
+            Fondo_Combate.Source = nuevaImagen;
+
         }
 
         /// <summary>
