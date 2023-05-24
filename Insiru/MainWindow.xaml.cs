@@ -82,6 +82,56 @@ namespace Insiru
 
         }
 
+        //Eventos para mostrar mensajes de ayuda al usuario con información de la funcionalidad del elemento dónde esté el ratón
 
+        private void Shiny_Aliado_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Activar shiny del Pokemon aliado";
+        }
+
+        private void Shiny_Aliado_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Selector de Pokemon";
+        }
+
+        private void Shiny_Enemigo_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Activar shiny del Pokemon rival";
+        }
+
+        private void Shiny_Enemigo_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Selector de Pokemon";
+        }
+
+        private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Ir al combate";
+        }
+
+        private void Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Selector de Pokemon";
+        }
+
+        private void Pokemon_Aliado_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Elige qué Pokemon quieres";
+        }
+
+        private void Pokemon_Aliado_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Selector de Pokemon";
+        }
+
+        private void Pokemon_Enemigo_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Elige el Pokemon del enemigos";
+        }
+
+        private void Pokemon_Enemigo_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Selector de Pokemon";
+        }
     }
 }

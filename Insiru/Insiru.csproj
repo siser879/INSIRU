@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CombateTests.cs" />
     <Compile Include="VictoriaDerrotaRendicion.xaml.cs">
       <DependentUpon>VictoriaDerrotaRendicion.xaml</DependentUpon>
     </Compile>
@@ -194,6 +195,13 @@
     <Resource Include="Images\GUI\Logo.ico" />
     <Resource Include="Images\GUI\Vida Aliado.png" />
     <Resource Include="Images\GUI\Vida enemigo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GUI\3ds.png" />
+    <Resource Include="Images\GUI\fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo 3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

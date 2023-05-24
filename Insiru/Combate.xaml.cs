@@ -31,6 +31,7 @@ namespace Insiru
 
         //Declaración de variables públicas para acceder a los controles desde los test
         public Button AtaquePlacaje { get; private set; }
+        public Button AtaqueEsquivar { get; private set; }
 
         /// <summary>
         /// Crea una nueva instancia de la ventana de Combate con los pokemon aliado y enemigo especificados.
@@ -51,6 +52,7 @@ namespace Insiru
             // Asignar los valores de shiny a las variables de la clase.
             shiny_aliado = shiny1;
             shiny_enemigo = shiny2;
+
         }
 
         /// <summary>
@@ -63,6 +65,17 @@ namespace Insiru
 
             // Seleccionar el ataque de placaje por defecto.
             AtaquePlacaje = Ataque1;
+
+            //Llamada a la clase CombateTests y ejecución de los mismos
+            CombateTests combateTests = new CombateTests();
+            if (combateTests.Comprobacion_Tests())
+            {
+                MessageBox.Show("Tests pasados con éxito");
+            }
+            else
+            {
+                MessageBox.Show("Tests fallidos");
+            }
         }
 
         /// <summary>
@@ -171,7 +184,7 @@ namespace Insiru
         /// Muestra un mensaje con el ataque realizado por el pokemon enemigo.
         /// </summary>
         /// <param name="eleccion">El número del ataque elegido por el pokemon enemigo.</param>
-        private void mensaje_ataque_enemigo(int eleccion)
+        private void Mensaje_ataque_enemigo(int eleccion)
         {
             string nombre_ataque = "";
 
@@ -199,7 +212,7 @@ namespace Insiru
         /// Realiza una tirada de defensa para determinar si el pokemon aliado esquivará el próximo ataque del enemigo.
         /// </summary>
         /// <returns>Verdadero si la defensa es exitosa, falso si falla.</returns>
-        private Boolean defensa()
+        private Boolean Defensa()
         {
             Random random = new Random();
 
@@ -225,15 +238,15 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque1_Metodo"
                     Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo ataca al pokemon aliado usando el método "Ataque1_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
 
                 case 2:
                     // Si el ataque enemigo es de tipo 2, se ejecuta el siguiente código:
                     // El pokemon enemigo utiliza una acción defensiva usando la función "defensa"
-                    mensaje_ataque_enemigo(ataque_enemigo);
-                    if (!defensa())
+                    Mensaje_ataque_enemigo(ataque_enemigo);
+                    if (!Defensa())
                     {
                         // Si la función "defensa" devuelve false, el pokemon aliado ataca al pokemon enemigo usando el método "Ataque1_Metodo"
                         MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
@@ -251,7 +264,7 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque1_Metodo"
                     Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo se cura usando el método "Ataque3_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
                     break;
 
@@ -260,7 +273,7 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque1_Metodo"
                     Ataque1_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo ataca al pokemon aliado usando el método "Ataque4_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
             }
@@ -281,10 +294,10 @@ namespace Insiru
                 case 1:
                     // Si el ataque del enemigo es 1, el enemigo defiende y el pokemon aliado tiene que esquivar
                     // Muestra un mensaje indicando que el enemigo ha elegido defensa
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
 
                     // Verifica si el pokemon aliado logró esquivar el ataque del enemigo
-                    if (!defensa())
+                    if (!Defensa())
                     {
                         // Si no logra esquivar, el pokemon aliado pierde vida y muestra un mensaje indicando que falló al esquivar
                         MessageBox.Show(pokemon_aliado.Nombre + " fallo al esquivar!");
@@ -300,7 +313,7 @@ namespace Insiru
                 case 2:
                     // Si el ataque del enemigo es 2, ambos el pokemon aliado y el enemigo fallan al esquivar
                     // Muestra un mensaje indicando que el enemigo ha elegido el ataque 2 y que ambos pokemons fallaron al esquivar
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     MessageBox.Show(pokemon_aliado.Nombre + " fallo al esquivar!");
                     MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
                     break;
@@ -308,15 +321,15 @@ namespace Insiru
                 case 3:
                     // Si el ataque del enemigo es 3, el enemigo se cura y realiza un ataque curativo en sí mismo
                     // Muestra un mensaje indicando que el enemigo ha elegido el ataque 3 y se cura
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
                     break;
 
                 case 4:
                     // Si el ataque del enemigo es 4, el enemigo ataca y el pokemon aliado tiene que esquivar
                     // Muestra un mensaje indicando que el enemigo ha elegido ataque 4
-                    mensaje_ataque_enemigo(ataque_enemigo);
-                    if (!defensa())
+                    Mensaje_ataque_enemigo(ataque_enemigo);
+                    if (!Defensa())
                     {
                         // Si no logra esquivar, el pokemon aliado pierde vida y muestra un mensaje indicando que falló al esquivar
                         MessageBox.Show(pokemon_aliado.Nombre + " fallo al esquivar!");
@@ -346,7 +359,7 @@ namespace Insiru
                 case 1:
                     // Se cura el Pokémon aliado y se muestra un mensaje del ataque del enemigo
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     // Se reduce la vida del aliado con el ataque 1 del enemigo
                     Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
@@ -354,21 +367,21 @@ namespace Insiru
                 case 2:
                     // Se cura el Pokémon aliado y se muestra un mensaje de que el enemigo falló al esquivar
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
                     break;
 
                 case 3:
                     // Se cura el Pokémon aliado, se muestra un mensaje del ataque del enemigo y se cura el enemigo
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
                     break;
 
                 case 4:
                     // Se cura el Pokémon aliado, se muestra un mensaje del ataque del enemigo y se realiza el ataque 4 del enemigo al aliado
                     Ataque3_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, true);
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
 
@@ -392,15 +405,15 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque4_Metodo"
                     Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo ataca al pokemon aliado usando el método "Ataque1_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque1_Metodo(Vida_Aliado, pokemon_aliado, pokemon_aliado_maxVida, false);
                     break;
 
                 case 2:
                     // Si el ataque enemigo es de tipo 2, se ejecuta el siguiente código:
                     // El pokemon enemigo utiliza una acción defensiva usando la función "defensa"
-                    mensaje_ataque_enemigo(ataque_enemigo);
-                    if (!defensa())
+                    Mensaje_ataque_enemigo(ataque_enemigo);
+                    if (!Defensa())
                     {
                         // Si la función "defensa" devuelve false, el pokemon aliado ataca al pokemon enemigo usando el método "Ataque4_Metodo"
                         MessageBox.Show(pokemon_enemigo.Nombre + " fallo al esquivar!");
@@ -418,7 +431,7 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque4_Metodo"
                     Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo se cura usando el método "Ataque3_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque3_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, false);
                     break;
 
@@ -427,7 +440,7 @@ namespace Insiru
                     // El pokemon aliado ataca al pokemon enemigo usando el método "Ataque4_Metodo"
                     Ataque4_Metodo(Vida_Enemigo, pokemon_enemigo, pokemon_aliado, pokemon_enemigo_maxVida, true);
                     // El pokemon enemigo ataca al pokemon aliado usando el método "Ataque4_Metodo"
-                    mensaje_ataque_enemigo(ataque_enemigo);
+                    Mensaje_ataque_enemigo(ataque_enemigo);
                     Ataque4_Metodo(Vida_Aliado, pokemon_aliado, pokemon_enemigo, pokemon_aliado_maxVida, false);
                     break;
             }
@@ -651,5 +664,66 @@ namespace Insiru
             }
         }
 
+        //Eventos para mostrar mensajes de ayuda al usuario con información de la funcionalidad del elemento dónde esté el ratón
+
+        private void Ataque1_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Utilizar ataque Placaje de tú Pokemon";
+        }
+
+        private void Ataque1_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
+
+        private void Ataque2_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Úsalo para intenta esquivar el ataque del rival";
+        }
+
+        private void Ataque2_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
+
+        private void Ataque3_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Úsalo para curarte";
+        }
+
+        private void Ataque3_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
+
+        private void Ataque4_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Utilizar ataque Elemental de tú Pokemon";
+        }
+
+        private void Ataque4_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
+
+        private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Púlsa para poder abandonar la partida";
+        }
+
+        private void Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
+
+        private void AbandonarPartida_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Púlsa para huir";
+        }
+
+        private void AbandonarPartida_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.Title = "Combate";
+        }
     }
 }
