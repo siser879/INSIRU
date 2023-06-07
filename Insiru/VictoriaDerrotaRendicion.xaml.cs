@@ -22,7 +22,7 @@ namespace Insiru
     public partial class VictoriaDerrotaRendicion : Window
     {
         // Variable para indicar si el usuario ganó o perdió
-        private Boolean victoria_derrota;
+        readonly Boolean victoria_derrota;
 
         // Constructor de la clase
         public VictoriaDerrotaRendicion(Boolean esVictoria)
@@ -33,11 +33,11 @@ namespace Insiru
             victoria_derrota = esVictoria;
 
             // Llamar al método para cambiar el texto según si el usuario ganó o perdió
-            cambioTexto();
+            CambioTexto();
         }
 
         // Método para cambiar el texto en la ventana según si el usuario ganó o perdió
-        public void cambioTexto()
+        public void CambioTexto()
         {
             // Si el usuario ganó, cambiar el texto a "¡VICTORIA!"
             if (victoria_derrota == true)

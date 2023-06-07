@@ -15,7 +15,7 @@ namespace Insiru
     public partial class Combate : Window
     {
         //Declaración del Pokemon aliado y enemigo
-        private readonly Pokemon pokemon_aliado;
+        public readonly Pokemon pokemon_aliado;
         public readonly Pokemon pokemon_enemigo;
 
         //Declaración de la seleccion de Shinys del Pokemon aliado y enemigo
@@ -32,6 +32,7 @@ namespace Insiru
         //Declaración de variables públicas para acceder a los controles desde los test
         public Button AtaquePlacaje { get; private set; }
         public Button AtaqueEsquivar { get; private set; }
+        public Button AtaqueCurar { get; private set; }
 
         /// <summary>
         /// Crea una nueva instancia de la ventana de Combate con los pokemon aliado y enemigo especificados.
@@ -73,6 +74,9 @@ namespace Insiru
 
             // Seleccionar el ataque de placaje por defecto.
             AtaquePlacaje = Ataque1;
+
+            AtaqueEsquivar = Ataque2;
+            AtaqueCurar = Ataque3;
 
             //Llamada a la clase CombateTests y ejecución de los mismos
             CombateTests combateTests = new CombateTests();
@@ -178,7 +182,7 @@ namespace Insiru
         /// Elige aleatoriamente un ataque para el pokemon enemigo.
         /// </summary>
         /// <returns>El número del ataque elegido (entre 1 y 4).</returns>
-        private int elegir_ataque_enemigo()
+        private int Elegir_ataque_enemigo()
         {
             Random rnd = new Random();
 
@@ -236,7 +240,7 @@ namespace Insiru
             MessageBox.Show(pokemon_aliado.Nombre + " uso Placaje");
 
             // Se elige al azar un ataque para el pokemon enemigo usando la función "elegir_ataque_enemigo"
-            int ataque_enemigo = elegir_ataque_enemigo();
+            int ataque_enemigo = Elegir_ataque_enemigo();
 
             // Se utiliza una estructura de control switch para ejecutar diferentes acciones basadas en el ataque elegido
             switch (ataque_enemigo)
@@ -294,7 +298,7 @@ namespace Insiru
             MessageBox.Show(pokemon_aliado.Nombre + " uso Esquivar");
 
             // Elige un ataque aleatorio para el enemigo y lo almacena en la variable ataque_enemigo
-            int ataque_enemigo = elegir_ataque_enemigo();
+            int ataque_enemigo = Elegir_ataque_enemigo();
 
             // Realiza diferentes acciones según el ataque del enemigo
             switch (ataque_enemigo)
@@ -359,7 +363,7 @@ namespace Insiru
             MessageBox.Show(pokemon_aliado.Nombre + " uso Curar");
 
             // Se elige un ataque aleatorio del Pokémon enemigo
-            int ataque_enemigo = elegir_ataque_enemigo();
+            int ataque_enemigo = Elegir_ataque_enemigo();
 
             // Se utiliza un switch para realizar acciones diferentes según el ataque del enemigo
             switch (ataque_enemigo)
@@ -403,7 +407,7 @@ namespace Insiru
             MessageBox.Show(pokemon_aliado.Nombre + " uso " + Ataque4.Content);
 
             // Se elige al azar un ataque para el pokemon enemigo usando la función "elegir_ataque_enemigo"
-            int ataque_enemigo = elegir_ataque_enemigo();
+            int ataque_enemigo = Elegir_ataque_enemigo();
 
             // Se utiliza una estructura de control switch para ejecutar diferentes acciones basadas en el ataque elegido
             switch (ataque_enemigo)
