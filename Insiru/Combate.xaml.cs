@@ -304,7 +304,7 @@ namespace Insiru
             switch (ataque_enemigo)
             {
                 case 1:
-                    // Si el ataque del enemigo es 1, el enemigo defiende y el pokemon aliado tiene que esquivar
+                    // Si el ataque del enemigo es 1, el enemigo ataca y el pokemon aliado tiene que esquivar
                     // Muestra un mensaje indicando que el enemigo ha elegido defensa
                     Mensaje_ataque_enemigo(ataque_enemigo);
 
@@ -318,7 +318,7 @@ namespace Insiru
                     else
                     {
                         // Si logra esquivar, muestra un mensaje indicando que el ataque del enemigo fue esquivado
-                        MessageBox.Show("Ataque esquivado por " + pokemon_enemigo.Nombre + "!");
+                        MessageBox.Show("Ataque esquivado por " + pokemon_aliado.Nombre + "!");
                     }
                     break;
 
